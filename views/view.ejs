@@ -1,0 +1,82 @@
+<%- include('partials/header.ejs') %>
+    <div class="view-container">
+        <div class="animeDetails">
+            <img src="<%= anime.images.webp.large_image_url %>" alt="">
+            <div class="actual-details">
+                <h3 class="title">
+                    <%= anime.title_english %>
+                </h3>
+                <p class="type">
+                    <%= anime.type %>
+                </p>
+                <p class="source">
+                    <%= anime.source %>
+                </p>
+                <p class="episodes">
+                    <%= anime.episodes %> episodes
+                </p>
+                <p id="status">
+                    <%= anime.status %>
+                </p>
+                <p id="date">
+                    <%= anime.aired.string %>
+                </p>
+                <p>
+                    <%= anime.season %>
+                </p>
+                <p>
+                    <%= anime.duration %>
+                </p>
+                <p>
+                    <%=anime.rating %>
+                </p>
+                <p>
+                    <%=anime.score %>
+                </p>
+                <p>
+                    <%=anime.rank %>
+                </p>
+                <p>
+                    <%= anime.popularity%>
+                </p>
+                <p>
+                    <%=anime.members %> users
+                </p>
+                <p>
+                    <%=anime.favorites %>
+                </p>
+                <p>
+                    <%=anime.background %>
+                </p>
+                <% anime.genres.forEach(element=> { %>
+                    <p>
+                        <%=element.name %>
+                    </p>
+
+                    <% }); %>
+                <% anime.studios.forEach(element=> { %>
+                    <p>
+                        <%=element.name %> std
+                    </p>
+
+                    <% }); %>
+            </div>
+        </div>
+        <div class="synopsis">
+            <p>
+                <%= anime.synopsis %>
+            </p>
+        </div>
+        <div class="trailer">
+            <iframe width="560" src="<%= anime.trailer.embed_url  %>" title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+
+        </div>
+        <div class="characters">
+
+        </div>
+    </div>
+
+    <%- include('partials/footer.ejs') %>

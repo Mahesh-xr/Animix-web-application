@@ -1,0 +1,145 @@
+body {
+    background-color: #121419;
+    color: white;
+    margin: 20px;
+    font-family: Inter, sans-serif;
+}
+
+span {
+    color: white;
+}
+
+.home-container {
+    display: flex;
+    gap: 2rem;
+}
+
+#top-list-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    width: 50%;
+    height: 450px;
+}
+
+.cards {
+    position:relative;
+    text-decoration: none;
+    color: #fffefe;
+    display: flex;
+    gap: 20px;
+    border-radius: 5%;
+    position: relative;
+    width: 350px;
+    box-shadow: 8px 8px 15px rgba(210, 207, 207, 0.8), 
+                -8px -8px 15px rgba(60, 60, 60, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+ 
+.cards:hover {
+    transform: translateY(-20px); /* Moves the card upwards */
+    box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.8), 
+                -15px -15px 30px rgba(60, 60, 60, 0.4);
+}
+
+img {
+    width: 100%;
+    border-radius: 5%;
+}
+
+.cardAnime__meta, .cardAnime__rating {
+    display: flex;
+    gap: 10px;
+    padding-bottom: 0px;
+}
+
+.svelte-f98ila, .chip , .-f98ila{
+    
+    margin-bottom: 2px;
+    margin-top: 10px;
+}
+
+.status {
+    border-radius: 5px;
+    padding:10px;
+    opacity: 80%;
+    font-size: .8em;
+    border: 1px solid transparent;
+    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.8), 
+                -8px -8px 15px rgba(60, 60, 60, 0.2);
+    border: 1px rgb(116, 126, 116) solid;
+
+}
+
+small {
+    opacity: 80%;
+}
+
+#header {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    align-items: center;
+    justify-self: flex-start;
+    max-width: 50%;
+}
+
+#header div #welcome-text {
+    padding: 10px 30px;
+    border: 1px rgb(116, 126, 116) solid;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 5px 3px 20px rgba(210, 207, 207, 0.8), 5px 5px 150px rgba(210, 207, 207, 0.8);
+
+    
+}
+
+.header-1 {
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    font-family: 'IBM Plex Mono', monospace;
+    margin: 5px 0;
+    font-weight: 700;
+    font-size: 100px;
+}
+
+.header-1 p {
+    width: 50%;
+}
+
+#header * {
+    margin: auto;
+}
+
+.button-div {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.certification{
+    position: relative;
+    bottom:10px;
+    left: 10px;
+}
+.search-div{
+    display: flex;
+    gap: 10px;
+}
+.nav-link {
+    color: white;
+    position: relative;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+  }
+.cardAnime__genres{
+    display:flex;
+    gap: 5px;
+}
+.genre{
+    padding: 5px;
+    font-size: .8em;
+}
