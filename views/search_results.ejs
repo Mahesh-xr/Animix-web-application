@@ -1,4 +1,12 @@
 <%- include('partials/header.ejs') %>
+<div>
+  <form class=" search-div col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 search-div" role="search" action="/search" method="GET">
+      <input type="search" class="form-control form-control-dark text-bg-light" name="query"
+        placeholder="Search..." aria-label="Search">
+      <button type="submit" class="btn btn-primary ">Search</button>
+    </form>
+</div>
+<div class="resul"><h3 class="status result"><%= results.length %>  Results found</h3></div>
 <div id="top-list-container" style="width: 100%;">
   <% results.forEach(anime=> { %>
   <a class="cards" href="/view/<%= anime.mal_id %>">

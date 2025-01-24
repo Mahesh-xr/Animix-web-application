@@ -1,28 +1,12 @@
-import  express from 'express';
-import  axios from 'axios'
-const app = express();
-const port = 3000;
-const baseURL = ''
-app.use(express.static('public'));
-app.use(express.urlencoded({extended:true}));
 
-
-app.get('/', async(req, res)=>{
-    try{
-     constresult = await axios.get(baseURL,{
-        params = {
-            
-        }
-     }
-
-     )
-    }
-    catch(error){
-
-    }
-   res.render('home.ejs', {topAnime: })
+function hide(event){
+    event.preventDefault();
+    document.querySelector('.sidebar').classList.toggle('active');
+}
+document.querySelector(".nav-icon").addEventListener('click', function(event){
+    hide(event);
 })
 
-app.listen(port, ()=>{
-    console.log(`server running at port ${port}` )
+document.querySelector('.cancel-icon').addEventListener('click', function(event){
+    hide(event);
 })
