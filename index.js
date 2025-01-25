@@ -2,7 +2,7 @@ import express from 'express';
 import axios from 'axios';
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const baseURL = 'https://api.jikan.moe/v4/'
 
 app.use(express.static('public'))
