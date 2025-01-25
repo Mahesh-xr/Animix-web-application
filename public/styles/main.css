@@ -4,6 +4,10 @@ body {
     font-family: Inter, sans-serif;
     
 }
+body{
+    width: 100% !important;
+    height: 100vh;
+}
 
 span {
     color: white;
@@ -124,9 +128,7 @@ h1 {
     width: 50%;
 }
 
-#header * {
-    margin: auto;
-}
+
 
 .button-div {
     display: flex;
@@ -333,13 +335,173 @@ body::-webkit-scrollbar {
 .sec{
     display: none;
 }
-/* Base styles for all devices (default styling for small screens like mobile phones) */
 
-/* Extra Small Devices (up to 575px) */
+@media screen and (max-width: 575px) {
+    .home-container{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
 
+    }
+    #header{
+        margin: 10px;
+        max-width: fit-content;
+        gap:0;
+    }
+    #header div{
+        margin: 10px 0px;
+
+    }
+    .py-3,.mb-4{
+        padding: 0 1rem !important;
+        margin: 0 !important;
+    }
+    #top-list-container{
+        width: 100%;
+        padding: 10px;
+        height: 30vh;
+        border-radius: 1rem;
+    }
+    .cards{
+        gap: 15px;
+        height: 250px;
+        width: 100%;
+    }
+    .svelte-f98ila{
+        margin-top: 5px;
+        margin-bottom: 0;
+    }
+    #head-text{
+        margin-top: 2rem;
+        
+    }
+    .justify-content-center{
+        justify-content: space-between !important ;
+    }
+
+    .sec{
+        display: block;
+    }
+    .search{
+        display: block;
+    }
+    .hide{
+        display: none;
+    }
+    .svg {
+        display: block;
+    }
+    .sidebar{
+        display:none;
+        flex-direction: column;
+        justify-content: space-evenly;
+        position: absolute;
+        right:0;
+        height: 100%;
+        width: 50%;
+        backdrop-filter: blur(10px); /* Adjust the blur intensity */
+        z-index: 999;
+        font-size: 2rem;    
+    }
+    .sidebar svg{
+        color: white;
+    }
+    .sidebar li{
+        width: 50%;
+        text-align: center;
+        border-radius: 10px;
+        border: 1px solid rgb(249, 249, 249)
+    }
+    .navbar-icon{
+       display: block;
+       width: 4rem;
+       height: 3rem;
+       color: rgb(245, 242, 242);
+       border: 1px solid white;
+       margin-top: 1rem;
+       padding: .5rem;
+       position: relative;
+       border-radius:20px ;
+       background-color: #fffefe;
+       
+    }
+   
+    .active{
+        display: flex;
+    }
   
-  @media (min-width: 0px) and (max-width: 768px) {
-    /* Styles for larger mobile phones and small tablets */
+    .header-1 p {
+        width: 40ch;
+        margin-left: 5px !important;
+    }
+   
+  
+    
+    .character{
+        width: 320px;
+        gap: 10px;
+    }
+    .actor img{
+        width: 90px;
+        height: 90px;
+    }
+    .actor{
+        padding-bottom: 5px;
+    }
+    .animeDetails{
+        gap: 5px;
+        width: 820px;
+        margin: auto;
+        padding: 0;
+    }
+    .animeDetails img{
+        width:45%;
+        object-fit: contain;
+    }
+    #status{
+    gap:1px;
+    }
+    iframe{
+        height:30vh ;
+        width: 80;
+        margin: auto;
+    }
+    .actual-details{
+        gap:2px
+    }
+    .trailer{
+        background-color: aquamarine;
+        /* widt; */
+    }
+    
+    .about{
+        margin: auto;
+        padding: 1rem;
+    }
+    .about p{
+        width: 47ch;
+    }
+    .form-control{
+        width: 400px;
+        margin: auto;
+
+    }
+    .search-div{
+       padding: 10px 140px
+    }
+    .sec-search input{
+        width: 200px;
+    }
+    .sec-search{
+        gap:1rem;
+
+    }
+    
+
+
+  }
+  
+  @media (min-width: 576px) and (max-width: 768px) {
     .sec{
         display: block;
     }

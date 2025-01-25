@@ -1,170 +1,163 @@
 <%- include('partials/header.ejs') %>
-    <div class="view-container scroll-hidden">
-        <div>
-            <form class=" search-div col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 search-div" role="search" action="/search" method="GET">
-                <input type="search" class="form-control form-control-dark text-bg-light" name="query"
-                  placeholder="Search..." aria-label="Search">
-                <button type="submit" class="btn btn-primary ">Search</button>
-              </form>
-        </div>
-        
-        <div class="animeDetails carousel-wrapper">
-            <img src="<%= anime.images?.webp?.large_image_url || 'default.jpg' %>" alt="">
-            <div class="actual-details">
-                <h3 class="title ">
-                    <%= anime.title_english || 'No Title' %>
-                </h3>
-                <div class="type-source ">
-                    <p class="type ">
-                        Type: <%= anime.type || 'Unknown Type' %>
-                    </p>
-                    <p class="source ">
-                        Source: <%= anime.source || 'Unknown Source' %>
-                    </p>
-                </div>
-                <div class="type-source">
-                    <p id="status" class="status">
-                       <%= anime.status || 'Unknown Status' %>
-                    </p>
-                    <p class="episodes status">
-                        <%= anime.episodes || 'N/A' %> Episodes
-                     </p>
-                </div>
-               
-                
-                <p id="date">
-                    Aired: <%= anime.aired?.string || 'No Airing Info' %>
-                </p>
-                <div class="type-source">
-                    <p class="status ">
-                        Season: <%= anime.season || 'Unknown Season' %>
-                    </p>
-                    <p class="status">
-                       Duration: <%= anime.duration || 'No Duration Info' %>
-                    </p>
-                </div>
-               <div class="type-source">
-                <p>
-                    Rating:  <%= anime.rating || 'No Rating' %>
-                 </p>
-                 <p>
-                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="tabler-icon tabler-icon-star ">
-                         <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z">
-                         </path>
-                       </svg> <%= anime.score || 'No Score' %>
-                 </p>
-               </div>
-                
-                <div class="rank-fav">
-                    <p>
-                        Rank # <%= anime.rank || 'No Rank' %>
-                    </p>
-                    <p>
-                       Popularity: <%= anime.popularity || 'No Popularity' %>
-                    </p>
-                    <p>
-                       users:  <%= anime.members || 'No Members' %> 
-                    </p>
-                    <p>
-                        Favorites: <%= anime.favorites || 'No Favorites' %>
-                    </p>
+<div class="view-container scroll-hidden">
+  <!-- Search Form -->
+  <div>
+    <form
+      class="search-div col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3"
+      role="search"
+      action="/search"
+      method="GET"
+      style="padding: 10px 35px;"
+    >
+      <input
+        type="search"
+        class="form-control form-control-dark text-bg-light"
+        name="query"
+        placeholder="Search..."
+        aria-label="Search"
+      />
+      <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+  </div>
 
-                </div>
-               
-                <div class="anime-feature">
-                    <% if (Array.isArray(anime.genres)) { %>
-                        <div id="status">
-                            <% anime.genres.slice(0,4).forEach(element=> { %>
-                                <p  class="status">
-                                    <%= element.name %>
-                                </p>
-                            <% }); %>
-                        </div>
-                        
-                    <% } %>
-                    <% if (Array.isArray(anime.studios)) { %>
+  <!-- Anime Details Section -->
+  <div class="animeDetails carousel-wrapper">
+    <img
+      src="<%= anime.images?.webp?.large_image_url || 'default.jpg' %>"
+      alt="Anime Image"
+    />
+    <div class="actual-details">
+      <h3 class="title">
+        <%= anime.title_english || 'No Title' %>
+      </h3>
 
-                        <div id="status">
-                                <% anime.studios.forEach(element=> { %>
-                                    <p  class="status">
-                                          <%= element.name %>
-                                    </p>
-                                 <% }); %>
-                        </div>
-                        <% } %>
-                </div>
+      <div class="type-source">
+        <p class="type">Type: <%= anime.type || 'Unknown Type' %></p>
+        <p class="source">Source: <%= anime.source || 'Unknown Source' %></p>
+      </div>
 
-              
-            </div>
-        </div>
-        <div class="about">
-            <h3 class="sub-head"> Synopsis</h3>
-            <p id="synopsis"><%= anime.synopsis || 'No Synopsis Available' %></p>
-            <h3 class="sub-head">
-                Backgroud
-               </h3>
-            <p id="bg">
-                <%= anime.background || 'No Background Info' %>
-            </p>
-        </div>
-        <div class="trailer">
-            <h3 class="sub-head">Trailer</h3>
-            <iframe width="560" src="<%= anime.trailer?.embed_url  || 'OOPs' %>" title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-            </iframe>
-        </div>
-        <div class=" carousel-slide">
-            <h3 class="sub-head  sub">Characters</h3>
-            
-            <div class="characters">
-                <% characters.forEach(chr=> { %>
-                    <div class="character">
-                        <div>
-                            <p>
-                                <%= chr.character?.name || 'Unknown Character' %>
-                            </p>
-                            <p>
-                                <%= chr.role || 'Unknown Role' %>
-                            </p>
-                            <img src="<%= chr.character?.images?.webp?.image_url || 'default-character.jpg' %>" alt="">
-                        </div>
-                        <div class="voice-actors">
-                            <% if (chr.voice_actors[0]) { %>
-                                <div class="actor">
-                                    <img src="<%= chr.voice_actors[0].person.images?.jpg.image_url || 'default-actor.jpg' %>"
-                                        alt="">
-                                    <div>
-                                        <p>
-                                            <%= chr.voice_actors[0].person.name || 'Unknown Voice Actor' %>
-                                        </p>
-                                        <p>
-                                            <%= chr.voice_actors[0].language || 'Unknown Language' %>
-                                        </p>
-                                    </div>
-                                </div>
-                                <% } %>
-                                    <% if (chr.voice_actors[1]) { %>
-                                        <div class="actor">
-                                            <img src="<%= chr.voice_actors[1].person.images?.jpg.image_url || 'default-actor.jpg' %>"
-                                                alt="">
-                                            <div>
-                                                <p>
-                                                    <%= chr.voice_actors[1].person.name || 'Unknown Voice Actor' %>
-                                                </p>
-                                                <p>
-                                                    <%= chr.voice_actors[1].language || 'Unknown Language' %>
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <% } %>
-                        </div>
-                    </div>
-                    <% }) %>
+      <div class="type-source">
+        <p id="status" class="status">
+          Status: <%= anime.status || 'Unknown Status' %>
+        </p>
+        <p class="episodes status">
+          Episodes: <%= anime.episodes || 'N/A' %>
+        </p>
+      </div>
 
-            </div>
-            
-        </div>
-        
+      <p id="date">Aired: <%= anime.aired?.string || 'No Airing Info' %></p>
+
+      <div class="type-source">
+        <p class="status">
+          Season: <%= anime.season || 'Unknown Season' %>
+        </p>
+        <p class="status">
+          Duration: <%= anime.duration || 'No Duration Info' %>
+        </p>
+      </div>
+
+      <div class="type-source">
+        <p>Rating: <%= anime.rating || 'No Rating' %></p>
+        <p>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="tabler-icon tabler-icon-star"
+          >
+            <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z">
+            </path>
+          </svg> 
+          <%= anime.score || 'No Score' %>
+        </p>
+      </div>
+
+      <div class="rank-fav">
+        <p>Rank: #<%= anime.rank || 'No Rank' %></p>
+        <p>Popularity: <%= anime.popularity || 'No Popularity' %></p>
+        <p>Users: <%= anime.members || 'No Members' %></p>
+        <p>Favorites: <%= anime.favorites || 'No Favorites' %></p>
+      </div>
+
+      <!-- Anime Genres -->
+      <div class="anime-feature">
+        <% if (Array.isArray(anime.genres)) { %>
+          <div id="status">
+            <% anime.genres.slice(0, 4).forEach((element) => { %>
+              <p class="status"><%= element.name %></p>
+            <% }); %>
+          </div>
+        <% } %>
+
+        <% if (Array.isArray(anime.studios)) { %>
+          <div id="status">
+            <% anime.studios.forEach((element) => { %>
+              <p class="status"><%= element.name %></p>
+            <% }); %>
+          </div>
+        <% } %>
+      </div>
     </div>
-    <%- include('partials/footer.ejs') %>
+  </div>
+
+  <!-- About Section -->
+  <div class="about">
+    <h3 class="sub-head">Synopsis</h3>
+    <p id="synopsis"><%= anime.synopsis || 'No Synopsis Available' %></p>
+    <h3 class="sub-head">Background</h3>
+    <p id="bg"><%= anime.background || 'No Background Info' %></p>
+  </div>
+
+  <!-- Trailer Section -->
+  <div class="trailer">
+    <h3 class="sub-head">Trailer</h3>
+    <iframe
+      width="560"
+      src="<%= anime.trailer?.embed_url || 'about:blank' %>"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+  </div>
+
+  <!-- Character Section -->
+  <div class="carousel-slide">
+    <h3 class="sub-head sub">Characters</h3>
+    <div class="characters">
+      <% characters.forEach((chr) => { %>
+        <div class="character">
+          <div>
+            <p><%= chr.character?.name || 'Unknown Character' %></p>
+            <p><%= chr.role || 'Unknown Role' %></p>
+            <img
+              src="<%= chr.character?.images?.webp?.image_url || 'default-character.jpg' %>"
+              alt=""
+            />
+          </div>
+          <div class="voice-actors">
+            <% if (chr.voice_actors?.[0]) { %>
+              <div class="actor">
+                <img
+                  src="<%= chr.voice_actors[0]?.person?.images?.jpg?.image_url || 'default-actor.jpg' %>"
+                  alt=""
+                />
+                <div>
+                  <p><%= chr.voice_actors[0]?.person?.name || 'Unknown Voice Actor' %></p>
+                  <p><%= chr.voice_actors[0]?.language || 'Unknown Language' %></p>
+                </div>
+              </div>
+            <% } %>
+          </div>
+        </div>
+      <% }); %>
+    </div>
+  </div>
+</div>
+<%- include('partials/footer.ejs') %>
