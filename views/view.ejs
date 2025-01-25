@@ -1,7 +1,7 @@
 <%- include('partials/header.ejs') %>
 <div class="view-container scroll-hidden">
   <!-- Search Form -->
-  <div>
+  <div class="max-hide">
     <form
       class="search-div col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 "
       role="search"
@@ -135,8 +135,11 @@
       <% characters.forEach((chr) => { %>
         <div class="character">
           <div>
-            <p><%= chr.character?.name || 'Unknown Character' %></p>
-            <p><%= chr.role || 'Unknown Role' %></p>
+            <div>
+                <p> <%= chr.character?.name || 'Unknown Character' %></p>
+                <p> Role: <%= chr.role || 'Unknown Role' %></p>
+            </div>
+            
             <img
               src="<%= chr.character?.images?.webp?.image_url || 'default-character.jpg' %>"
               alt=""
@@ -152,6 +155,16 @@
                 <div>
                   <p><%= chr.voice_actors[0]?.person?.name || 'Unknown Voice Actor' %></p>
                   <p><%= chr.voice_actors[0]?.language || 'Unknown Language' %></p>
+                </div>
+              </div>
+              <div class="actor">
+                <img
+                  src="<%= chr.voice_actors[1]?.person?.images?.jpg?.image_url || 'default-actor.jpg' %>"
+                  alt=""
+                />
+                <div>
+                  <p><%= chr.voice_actors[1]?.person?.name || 'Unknown Voice Actor' %></p>
+                  <p><%= chr.voice_actors[1]?.language || 'Unknown Language' %></p>
                 </div>
               </div>
             <% } %>

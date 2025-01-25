@@ -9,6 +9,10 @@ body{
     height: 100vh;
 }
 
+ footer div {
+    width: fit-content;
+ }
+
 span {
     color: white;
 }
@@ -16,6 +20,11 @@ span {
 .home-container {
     display: flex;
     gap: 2rem;
+}
+#header div{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 
 #top-list-container {
@@ -49,6 +58,11 @@ span {
 }
  
 .cards:hover {
+    transform: translateY(-20px); /* Moves the card upwards */
+    box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.8), 
+                -15px -15px 30px rgba(60, 60, 60, 0.4);
+}
+.character:hover {
     transform: translateY(-20px); /* Moves the card upwards */
     box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.8), 
                 -15px -15px 30px rgba(60, 60, 60, 0.4);
@@ -213,6 +227,7 @@ h1 {
     box-shadow: 8px 8px 15px rgba(210, 207, 207, 0.8), 
                 -8px -8px 15px rgba(60, 60, 60, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
 }
 
 .voice-actors{
@@ -223,7 +238,7 @@ h1 {
 }
 
 .character p {
-    margin: 0;
+    margin: auto;
 }
 .character  img {
     height:80%;
@@ -232,7 +247,7 @@ h1 {
 .actor img{
     width:120px;
     height: 120px;
-    border-radius: 50%;
+    border-radius: 10px;
 
 }
 .actor p {
@@ -246,8 +261,8 @@ h1 {
     font-family: 'Courier New', Courier, monospace;
     font-size: 3rem;
     font-weight: 600;
-    margin-left: 5rem;
     max-width: 20ch;
+    margin: auto;
 }
  .actual-details{
 
@@ -332,15 +347,19 @@ body::-webkit-scrollbar {
 .sidebar,.search{
     display: none;
 }
-.sec{
+.sec, .max-hide{
     display: none;
 }
 
 @media screen and (max-width: 575px) {
+    .max-hide{
+        display: contents;
+    }
     .home-container{
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        gap:2rem;
 
     }
     #header{
@@ -349,7 +368,7 @@ body::-webkit-scrollbar {
         gap:0;
     }
     #header div{
-        margin: 10px 0px;
+        margin: 5px 0px;
 
     }
     h1{
@@ -358,6 +377,7 @@ body::-webkit-scrollbar {
     }
     .title{
         margin: auto;
+        font-size: 1.5rem;
     }
     #welcome-text, .header-1 p {
         font-size: smaller;
@@ -373,7 +393,7 @@ body::-webkit-scrollbar {
     #top-list-container{
         width: 100%;
         padding: 10px;
-        height: 30vh;
+        height: 50vh;
         border-radius: 1rem;
     }
     .cards{
@@ -519,6 +539,9 @@ body::-webkit-scrollbar {
   }
   
   @media (min-width: 576px) and (max-width: 768px) {
+    .max-hide{
+        display: contents;
+    }
     .sec{
         display: block;
     }
@@ -583,7 +606,8 @@ body::-webkit-scrollbar {
         padding:1rem;
     }
     #header div{
-        margin:3.5rem 0 ;
+        margin:1.5rem 0 ;
+        
     }
     .character{
         width: 320px;
