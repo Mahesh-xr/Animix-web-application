@@ -336,12 +336,9 @@ body::-webkit-scrollbar {
 /* Base styles for all devices (default styling for small screens like mobile phones) */
 
 /* Extra Small Devices (up to 575px) */
-@media (max-width: 575px) {
-    /* Styles for small mobile phones */
-  }
+
   
-  /* Small Devices (576px to 767px) */
-  @media (min-width: 576px) and (max-width: 768px) {
+  @media (min-width: 0px) and (max-width: 768px) {
     /* Styles for larger mobile phones and small tablets */
     .sec{
         display: block;
