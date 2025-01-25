@@ -352,6 +352,20 @@ body::-webkit-scrollbar {
         margin: 10px 0px;
 
     }
+    h1{
+        margin: auto;
+        font-size: 3.5rem;
+    }
+    .title{
+        margin: auto;
+    }
+    #welcome-text, .header-1 p {
+        font-size: smaller;
+    }
+    #bg, #synopsis{
+        margin-left:0 ;
+    }
+   
     .py-3,.mb-4{
         padding: 0 1rem !important;
         margin: 0 !important;
@@ -401,7 +415,7 @@ body::-webkit-scrollbar {
         width: 50%;
         backdrop-filter: blur(10px); /* Adjust the blur intensity */
         z-index: 999;
-        font-size: 2rem;    
+        font-size: small;    
     }
     .sidebar svg{
         color: white;
@@ -435,7 +449,7 @@ body::-webkit-scrollbar {
         margin-left: 5px !important;
     }
    
-  
+   
     
     .character{
         width: 320px;
@@ -450,36 +464,36 @@ body::-webkit-scrollbar {
     }
     .animeDetails{
         gap: 5px;
-        width: 820px;
-        margin: auto;
-        padding: 0;
+        flex-direction: column;
+        padding: 5px;
+        width: fit-content;
     }
     .animeDetails img{
-        width:45%;
+        width:20rem;
+        margin: auto;
         object-fit: contain;
     }
-    #status{
-    gap:1px;
-    }
+   
     iframe{
         height:30vh ;
         width: 80;
         margin: auto;
     }
     .actual-details{
-        gap:2px
+        gap:2px;
+        
     }
-    .trailer{
+    /* .trailer{
         background-color: aquamarine;
         /* widt; */
-    }
+    
     
     .about{
-        margin: auto;
         padding: 1rem;
     }
     .about p{
         width: 47ch;
+        font-size: small;
     }
     .form-control{
         width: 400px;
@@ -487,8 +501,9 @@ body::-webkit-scrollbar {
 
     }
     .search-div{
-       padding: 10px 140px
-    }
+        width: 80%;
+        margin: auto;
+        }
     .sec-search input{
         width: 200px;
     }
@@ -496,7 +511,9 @@ body::-webkit-scrollbar {
         gap:1rem;
 
     }
-    
+    .actual-details p{
+        font-size: 1rem;
+    }
 
 
   }
@@ -598,6 +615,7 @@ body::-webkit-scrollbar {
         width: 100%;
     }
     .about{
+
         width: 100%;
         padding: 1rem;
     }
