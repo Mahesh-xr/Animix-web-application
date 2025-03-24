@@ -2,12 +2,11 @@ body {
     background-color: #121419;
     color: white;
     font-family: Inter, sans-serif;
-    
-}
-body{
     width: 100% !important;
     height: 100vh;
+    
 }
+
 
  footer div {
     width: fit-content;
@@ -44,7 +43,7 @@ span {
 .cards {
     position:relative;
     text-decoration: none;
-    color: #fffefe;
+    color: #fffefe !important;
     display: flex;
     gap: 20px;
     border-radius: 5%;
@@ -54,7 +53,38 @@ span {
     box-shadow: 8px 8px 15px rgba(210, 207, 207, 0.8), 
                 -8px -8px 15px rgba(60, 60, 60, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+
     
+}
+.add-to-fav{
+    display: flex;
+    gap: 1rem;
+    height: 100vh;
+
+}
+#add-to-fav-anime-card,#add-to-fav-anime-qn{
+    width: fit-content;
+    height: fit-content;
+
+}
+#add-to-fav-anime-card{
+    display: flex;
+    flex-direction: row;
+    box-shadow: 8px 8px 15px rgba(210, 207, 207, 0.8), 
+                -8px -8px 15px rgba(60, 60, 60, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+}
+#add-to-fav-anime-qn{
+    margin-top: 10px !important;
+    margin: auto;
+}
+
+#add-to-fav-anime-qn form{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
  
 .cards:hover {
@@ -67,6 +97,8 @@ span {
     box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.8), 
                 -15px -15px 30px rgba(60, 60, 60, 0.4);
 }
+
+
 
 #top-list-container img {
     width: 100%;
@@ -86,7 +118,8 @@ div .result{
 }
 
 .svelte-f98ila, .chip , .-f98ila{
-    
+    background-color: #121419;
+    color:#fffefe;
     margin-bottom: 2px;
     margin-top: 10px;
 }
@@ -348,12 +381,15 @@ body::-webkit-scrollbar {
     display: none;
 }
 .sec, .max-hide{
-    display: none;
+    display: none !important;
 }
 
 @media screen and (max-width: 575px) {
+    .sec {
+        display: block !important;
+    }
     .max-hide{
-        display: contents;
+        display: block !important;
     }
     .home-container{
         flex-direction: column;
@@ -431,7 +467,7 @@ body::-webkit-scrollbar {
         justify-content: space-evenly;
         position: absolute;
         right:0;
-        height: 100%;
+        height: 100vh;
         width: 50%;
         backdrop-filter: blur(10px); /* Adjust the blur intensity */
         z-index: 999;
@@ -540,10 +576,10 @@ body::-webkit-scrollbar {
   
   @media (min-width: 576px) and (max-width: 768px) {
     .max-hide{
-        display: contents;
+        display: block !important;
     }
     .sec{
-        display: block;
+        display: block !important;
     }
     .search{
         display: block;
