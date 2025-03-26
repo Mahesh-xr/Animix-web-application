@@ -1,11 +1,24 @@
 import express from 'express';
 import axios from 'axios';
+import pg from "pg";
+
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 const baseURL = 'https://api.jikan.moe/v4/'
 app.use(express.static('public'))
 app.use(express.urlencoded({extended:true}));
+
+
+
+const db = new pg.Client({
+  user: "postgres",
+  host: "localhost",
+  database: "animix",
+  password: "mah@2005",
+  port: 5432,
+});
+db.connect();
 
 app.get('/',  async(req, res)=>{
     try{
@@ -85,8 +98,15 @@ app.get('/addToFav/:mal_id', async (req, res) => {
   }
 });
 
-app.post("/addToFav",(req, res)=>{
+app.post("/addToFav", async(req, res)=>{
   const{score, reason, favCharacter,recommend, animeId} = req.body;
+  const result = await db.query(
+    "INSERT INTO anime_reviews (mal_id, reason, score, recommendation,favCharacter) VALUES ($1, $2, $3, $4) RETURNING *",
+    [animeId, reason, score, recommend, favCharacter]
+  );
+  
+  res.json({ message: "Data inserted successfully", data: result.rows[0] });
+  
   
 })
 
