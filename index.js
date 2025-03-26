@@ -4,7 +4,6 @@ import axios from 'axios';
 const app = express();
 const PORT = process.env.PORT || 3000;
 const baseURL = 'https://api.jikan.moe/v4/'
-
 app.use(express.static('public'))
 app.use(express.urlencoded({extended:true}));
 
@@ -66,7 +65,7 @@ app.get('/view/:mal_id', async (req, res) => {
 
 app.get('/addToFav/:mal_id', async (req, res) => {
   const mal_id = req.params.mal_id; // Extract mal_id from the URL
-  console.log("Anime mal_id : "+mal_id)
+  // console.log("Anime mal_id : "+mal_id)
   const API_URL = `https://api.jikan.moe/v4/anime/${mal_id}`; // Jikan API endpoint for fetching specific anime
   const CHARACTER_API_URL = `https://api.jikan.moe/v4/anime/${mal_id}/characters`
   
@@ -86,7 +85,8 @@ app.get('/addToFav/:mal_id', async (req, res) => {
   }
 });
 
-app.post("add-to-favorites",(req, res)=>{
+app.post("/addToFav",(req, res)=>{
+  const{score, reason, favCharacter,recommend, animeId} = req.body;
   
 })
 
