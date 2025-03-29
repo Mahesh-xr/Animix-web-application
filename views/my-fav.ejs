@@ -1,0 +1,26 @@
+<%- include('partials/header.ejs') %>
+
+
+<div class="myfav">
+    <% favAnime.forEach(anime => { %>
+        <div class="anime">
+            <div class="image_space">
+                <img src="<%= anime.image_src||  %>" alt="<%= anime.title|| none %>">
+                <h3 class="title"> <%=anime.title  %> </h3>
+            </div>
+            <div class="favAnime_details">
+                <p class="score"><%=anime.score%>  </p>
+                <p class="reason"><%= anime.reason  %></p>
+                <p class="favChra"><%= anime.recommendation %></p>
+                <p class="recommendation"><%= anime.favcharacter %></p>
+            </div>
+        </div>
+     
+    <% }) %>
+ 
+    
+
+</div>
+
+
+<%- include('partials/footer.ejs') %>

@@ -77,6 +77,9 @@
 
             <form action="/addToFav" method="post" class="fav-form">
                 <input type="hidden" name="animeId" value="<%= anime.mal_id %>" />
+                <input type="hidden" name="image_src" value="<%= anime.images.webp.image_url %>" />
+                <input type="hidden" name="title" value="<%= anime.title_english%>" />
+
 
                 <label for="score">Your Score (1-10):</label>
                 <input type="number" id="score" name="score" min="1" max="10" required />

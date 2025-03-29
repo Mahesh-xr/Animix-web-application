@@ -99,12 +99,12 @@ app.get('/addToFav/:mal_id', async (req, res) => {
 });
 
 app.post("/addToFav", async (req, res) => {
-  const { score, reason, favCharacter, recommend, animeId } = req.body;
+  const { score, reason, favCharacter, recommend, animeId,image_src , title} = req.body;
 
   try {
     const result = await db.query(
-      "INSERT INTO anime_reviews (mal_id, reason, score, recommendation, favCharacter) VALUES ($1, $2, $3, $4, $5) RETURNING *",
-      [animeId, reason, score, recommend, favCharacter]
+      "INSERT INTO anime_reviews (mal_id, reason, score, recommendation, favCharacter, image_src, title) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *",
+      [animeId, reason, score, recommend, favCharacter, image_src, title]
     );
 
     res.json({ message: "Data inserted successfully", data: result.rows[0] });
@@ -117,7 +117,8 @@ app.post("/addToFav", async (req, res) => {
 app.get("/my-favourites", async (req, res) => {
   try {
     const result = await db.query("SELECT * FROM anime_reviews");
-    res.json(result.rows);
+    //console.log(result.rows)
+    res.render("my-fav.ejs",{ favAnime:result.rows});
   } catch (error) {
     console.error("Error fetching data:", error.message);
     res.status(500).json({ error: "Failed to fetch data" });
