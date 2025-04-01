@@ -59,8 +59,9 @@ span {
 }
 .add-to-fav{
     display: flex;
-    gap: 1rem;
+    gap: 10px;
     height: 100vh;
+    /* justify-content: space-around; */
 
 }
 #add-to-fav-anime-card,#add-to-fav-anime-qn{
@@ -382,6 +383,77 @@ body::-webkit-scrollbar {
 }
 .sec, .max-hide{
     display: none !important;
+}
+
+.anime, .myfav{
+    display: flex;
+    gap: 10px;
+    
+}
+.myfav{
+    height: 100vh;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    
+}
+.anime{
+    position:relative;
+    text-decoration: none;
+    color: #fffefe !important;
+    display: flex;
+    gap: 10px;
+    border-radius: 5%;
+    position: relative;
+    width: max-content;
+    height: 350px;
+    box-shadow: 8px 8px 15px rgba(210, 207, 207, 0.8), 
+                -8px -8px 15px rgba(60, 60, 60, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 1rem;
+}
+.image_space .title{
+    font-size: 1.2rem;
+    width: max-content;
+}
+.image_space img{
+    max-height: 280px;
+}
+.sticky-container {
+    position: sticky;
+    width: 100%;
+    top: 10px; /* Distance from the top of the viewport */
+    right: 10px;
+    z-index: 10; /* Keeps the button on top of other elements */
+    padding: 10px;
+    display: flex;
+justify-content: end;
+}
+.cardAnime__cover{
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+.favAnime_details{
+    display:flex ;
+    flex-direction: column;
+    align-items: baseline;
+    justify-content: space-evenly;
+}
+.favAnime_details p{
+    margin-bottom: 10px;
+    width: 20ch;
+}
+.favAnime_details div .status{
+    padding: 5px ;
+    
+}
+.favAnime_details div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 @media screen and (max-width: 575px) {

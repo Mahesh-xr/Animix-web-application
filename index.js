@@ -107,7 +107,7 @@ app.post("/addToFav", async (req, res) => {
       [animeId, reason, score, recommend, favCharacter, image_src, title]
     );
 
-    res.json({ message: "Data inserted successfully", data: result.rows[0] });
+    res.redirect("/my-favourites")
 
   } catch (error) {
     console.error("Error inserting data:", error.message);
@@ -116,7 +116,7 @@ app.post("/addToFav", async (req, res) => {
 });
 app.get("/my-favourites", async (req, res) => {
   try {
-    const result = await db.query("SELECT * FROM anime_reviews");
+    const result = await db.query("SELECT * FROM anime_reviews ORDER BY score DESC");
     //console.log(result.rows)
     res.render("my-fav.ejs",{ favAnime:result.rows});
   } catch (error) {
